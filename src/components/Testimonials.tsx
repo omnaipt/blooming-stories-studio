@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Empresa ABC",
+    name: "Entidade Bancária",
     event: "Evento Corporativo",
     date: "Novembro 2023",
     rating: 5,
