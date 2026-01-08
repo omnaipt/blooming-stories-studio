@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
+import vitoriaImage from "@/assets/vitoria.jpg";
 
 const About = () => {
   const stats = [
-    { value: "36+", label: "Anos de Experiência" },
-    { value: "2000+", label: "Eventos Realizados" },
+    { value: "37+", label: "Anos de Experiência" },
+    { value: "2000+", label: "Casamentos" },
     { value: "100%", label: "Satisfação" },
   ];
 
@@ -14,13 +15,11 @@ const About = () => {
           {/* Image / Visual Side */}
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-elevated">
-              <div className="w-full h-full bg-gradient-to-br from-rose-soft via-cream to-secondary flex items-center justify-center">
-                <div className="text-center p-8">
-                  <span className="text-8xl mb-4 block">🌺</span>
-                  <h3 className="font-serif text-2xl text-primary mb-2">Vitória</h3>
-                  <p className="text-muted-foreground">Florista • Malveira</p>
-                </div>
-              </div>
+              <img 
+                src={vitoriaImage} 
+                alt="Vitória - A Minha Florinha" 
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Floating Badge */}
