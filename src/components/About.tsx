@@ -22,13 +22,10 @@ const About = () => {
               />
             </div>
             
-            {/* Floating Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-card rounded-xl p-6 shadow-elevated">
-              <div className="text-center">
-                <span className="font-serif text-3xl font-bold text-primary block">1988</span>
-                <span className="text-sm text-muted-foreground">Desde</span>
-              </div>
-            </div>
+            {/* Simple caption below image */}
+            <p className="text-center text-sm text-muted-foreground italic mt-4">
+              Desde 1988
+            </p>
           </div>
 
           {/* Content Side */}
