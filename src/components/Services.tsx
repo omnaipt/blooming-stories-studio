@@ -19,6 +19,7 @@ const services = [
     title: "Bouquets de Noiva",
     description: "Criações personalizadas que complementam o vestido e a personalidade da noiva.",
     image: serviceBridal,
+    icon: "💐",
   },
   {
     id: "presentes",
