@@ -19,12 +19,6 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-32">
         <div className="max-w-2xl animate-fade-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-secondary/90 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <span className="text-sm font-medium text-secondary-foreground">
-              🌿 Florista desde 1988 • Malveira
-            </span>
-          </div>
 
           {/* Headline */}
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
@@ -53,18 +47,22 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Delivery Areas */}
-          <div className="mt-12 flex items-center gap-4 text-primary-foreground/80">
-            <span className="text-sm">Entregas em:</span>
-            <div className="flex gap-2">
-              {["Mafra", "Loures", "Lisboa"].map((area) => (
-                <span
-                  key={area}
-                  className="text-sm bg-primary-foreground/10 backdrop-blur-sm rounded-full px-3 py-1"
-                >
-                  {area}
-                </span>
-              ))}
+          {/* Delivery Areas & Since */}
+          <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 text-primary-foreground/80">
+            <span className="text-sm italic font-serif">Desde 1988</span>
+            <span className="hidden sm:block text-primary-foreground/40">•</span>
+            <div className="flex items-center gap-2">
+              <span className="text-sm">Entregas em:</span>
+              <div className="flex gap-2">
+                {["Mafra", "Loures", "Lisboa"].map((area) => (
+                  <span
+                    key={area}
+                    className="text-sm bg-primary-foreground/10 backdrop-blur-sm rounded-full px-3 py-1"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
