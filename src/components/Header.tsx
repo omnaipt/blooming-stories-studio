@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoTransparent from "@/assets/logo-transparent.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,18 +33,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-            <span className="text-xl">🌸</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-xl font-semibold text-primary leading-tight">
-              A Minha Florinha
-            </span>
-            <span className="text-xs text-muted-foreground italic">
-              Desde 1988 • Malveira
-            </span>
-          </div>
+        <a href="#home" className="flex items-center group">
+          <img 
+            src={logoTransparent} 
+            alt="A Minha Florinha - Florista desde 1988" 
+            className="h-14 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import logoTransparent from "@/assets/logo-transparent.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,16 +29,13 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                <span className="text-xl">🌸</span>
-              </div>
-              <div>
-                <span className="font-serif text-xl font-semibold block leading-tight">
-                  A Minha Florinha
-                </span>
-                <span className="text-xs text-primary-foreground/60">Desde 1988</span>
-              </div>
+            <div className="mb-4">
+              <img 
+                src={logoTransparent} 
+                alt="A Minha Florinha" 
+                className="h-16 w-auto brightness-0 invert opacity-90"
+              />
+              <span className="text-xs text-primary-foreground/60 block mt-1">Desde 1988</span>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-4">
               Decoração floral para casamentos, eventos e momentos especiais. 
