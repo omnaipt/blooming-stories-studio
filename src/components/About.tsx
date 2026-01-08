@@ -50,9 +50,9 @@ const About = () => {
                 por flores num legado de mais de três décadas ao serviço da região.
               </p>
               <p>
-                Cada buquê é um ato de amor, cada decoração uma obra de arte. Especializamo-nos em 
+                Cada bouquet é um ato de amor, cada decoração uma obra de arte. Especializamo-nos em 
                 <strong className="text-foreground"> casamentos</strong>, <strong className="text-foreground">eventos especiais</strong> e 
-                <strong className="text-foreground"> arranjos personalizados</strong>, sempre com atenção 
+                <strong className="text-foreground"> presentes especiais</strong>, sempre com atenção
                 meticulosa aos detalhes e às preferências de cada cliente.
               </p>
               <p>

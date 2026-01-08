@@ -15,8 +15,8 @@ const Footer = () => {
 
   const services = [
     "Decoração de Casamentos",
-    "Buquês de Noiva",
-    "Arranjos Personalizados",
+    "Bouquets de Noiva",
+    "Presentes Especiais",
     "Eventos Empresariais",
     "Batizados e Festas",
     "Serviços Fúnebres",
