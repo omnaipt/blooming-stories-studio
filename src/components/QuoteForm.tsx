@@ -4,8 +4,8 @@ import { toast } from "@/hooks/use-toast";
 
 const serviceOptions = [
   "Casamento",
-  "Buquê de Noiva",
-  "Arranjo Personalizado",
+  "Bouquet de Noiva",
+  "Presente Especial",
   "Evento Empresarial",
   "Batizado",
   "Serviço Fúnebre",

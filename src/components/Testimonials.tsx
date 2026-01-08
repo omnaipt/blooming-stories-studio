@@ -32,7 +32,7 @@ const testimonials = [
     event: "Casamento",
     date: "Setembro 2023",
     rating: 5,
-    text: "O buquê de noiva era exatamente o que sonhei! A Vitória captou a minha visão e transformou-a em realidade. Flores frescas, cores perfeitas, tudo impecável.",
+    text: "O bouquet de noiva era exatamente o que sonhei! A Vitória captou a minha visão e transformou-a em realidade. Flores frescas, cores perfeitas, tudo impecável.",
   },
 ];
 
