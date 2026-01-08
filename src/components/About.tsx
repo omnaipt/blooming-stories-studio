@@ -44,14 +44,14 @@ const About = () => {
 
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
-                Desde 1988, <strong className="text-foreground">Vitória</strong> dedica-se à criação de arranjos florais 
-                únicos que contam histórias. A partir da sua loja em Malveira, transformou uma paixão 
+                Desde 1988, a <strong className="text-foreground">Vitória</strong> dedica-se à criação de arranjos florais 
+                únicos que contam histórias. A partir da sua loja na Malveira, transformou uma paixão 
                 por flores num legado de mais de três décadas ao serviço da região.
               </p>
               <p>
                 Cada bouquet é um ato de amor, cada decoração uma obra de arte. Especializamo-nos em 
                 <strong className="text-foreground"> casamentos</strong>, <strong className="text-foreground">eventos especiais</strong> e 
-                <strong className="text-foreground"> presentes especiais</strong>, sempre com atenção
+                <strong className="text-foreground"> presentes especiais</strong>, sempre com atenção 
                 meticulosa aos detalhes e às preferências de cada cliente.
               </p>
               <p>
