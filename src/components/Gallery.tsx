@@ -1,18 +1,34 @@
 import { useState } from "react";
+import wedding1 from "@/assets/wedding-1.jpg";
+import wedding2 from "@/assets/wedding-2.jpg";
+import wedding3 from "@/assets/wedding-3.jpg";
+import wedding4 from "@/assets/wedding-4.jpg";
+import wedding5 from "@/assets/wedding-5.jpg";
+import wedding6 from "@/assets/wedding-6.jpg";
+import wedding7 from "@/assets/wedding-7.jpg";
+import wedding8 from "@/assets/wedding-8.jpg";
+import wedding9 from "@/assets/wedding-9.jpg";
+import wedding10 from "@/assets/wedding-10.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
+  // Casamentos - 10 fotos do portfolio
+  { src: wedding1, alt: "Mesa de noivos com decoração elegante", category: "Casamentos" },
+  { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", category: "Casamentos" },
+  { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", category: "Casamentos" },
+  { src: wedding4, alt: "Decoração outonal com romãs e flores secas", category: "Casamentos" },
+  { src: wedding5, alt: "Centro de mesa criativo com gomas", category: "Casamentos" },
+  { src: wedding6, alt: "Arco floral exterior com tecido terracota", category: "Casamentos" },
+  { src: wedding7, alt: "Placa de boas-vindas decorada com flores", category: "Casamentos" },
+  { src: wedding8, alt: "Centro de mesa azul e branco com velas", category: "Casamentos" },
+  { src: wedding9, alt: "Corredor de flores com hortênsias coloridas", category: "Casamentos" },
+  { src: wedding10, alt: "Arranjo alto com hortênsias em estrutura dourada", category: "Casamentos" },
+  // Outros
   { src: gallery1, alt: "Bouquet de rosas cor-de-rosa", category: "Arranjos" },
-  { src: gallery2, alt: "Arco de casamento com flores", category: "Casamentos" },
   { src: gallery3, alt: "Centro de mesa com velas e rosas", category: "Eventos" },
-  { src: gallery4, alt: "Peónia branca em detalhe", category: "Arranjos" },
-  { src: gallery5, alt: "Bouquet de noiva rústico", category: "Casamentos" },
   { src: gallery6, alt: "Arranjo em jarra de vidro", category: "Arranjos" },
 ];
 
