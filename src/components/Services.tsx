@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import serviceWedding from "@/assets/service-wedding-new.jpg";
 import serviceBridal from "@/assets/service-bridal.jpg";
 import serviceCustom from "@/assets/service-custom.jpg";
-import serviceCorporate from "@/assets/service-corporate.jpg";
+import serviceCorporate from "@/assets/service-corporate-new.jpg";
 import serviceBaptism from "@/assets/service-baptism.jpg";
 import serviceFuneral from "@/assets/service-funeral.jpg";
 
