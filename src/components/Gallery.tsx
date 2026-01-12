@@ -18,6 +18,9 @@ import wedding16 from "@/assets/wedding-16.jpg";
 import wedding17 from "@/assets/wedding-17.jpg";
 import wedding18 from "@/assets/wedding-18.jpg";
 import wedding19 from "@/assets/wedding-19.jpg";
+import wedding20 from "@/assets/wedding-20.jpg";
+import wedding21 from "@/assets/wedding-21.jpg";
+import wedding22 from "@/assets/wedding-22.jpg";
 import event1 from "@/assets/event-1.jpg";
 import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
@@ -29,7 +32,7 @@ import arranjo3 from "@/assets/arranjo-3.jpg";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  // Casamentos - 19 fotos do portfolio
+  // Casamentos - 22 fotos do portfolio
   { src: wedding1, alt: "Mesa de noivos com decoração elegante", category: "Casamentos" },
   { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", category: "Casamentos" },
   { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", category: "Casamentos" },
@@ -49,6 +52,9 @@ const galleryImages = [
   { src: wedding17, alt: "Placa de boas-vindas com eucalipto e gipsófila", category: "Casamentos" },
   { src: wedding18, alt: "Vespa vintage decorada com hortênsias", category: "Casamentos" },
   { src: wedding19, alt: "Mesa redonda com centro de hortênsias", category: "Casamentos" },
+  { src: wedding20, alt: "Mesa de entrada com arranjo de rosas e velas", category: "Casamentos" },
+  { src: wedding21, alt: "Noiva com bouquet de flores brancas", category: "Casamentos" },
+  { src: wedding22, alt: "Noiva com bouquet de rosas cor-de-rosa", category: "Casamentos" },
   // Eventos empresariais - 5 fotos
   { src: event1, alt: "Arco de eucalipto e gipsófila com velas", category: "Eventos" },
   { src: event2, alt: "Mesa de buffet com arranjos florais elegantes", category: "Eventos" },
