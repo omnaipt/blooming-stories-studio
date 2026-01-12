@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import logoTransparent from "@/assets/logo-transparent.png";
 
 const Footer = () => {
@@ -41,15 +41,24 @@ const Footer = () => {
               Decoração floral para casamentos, eventos e momentos especiais. 
               Criações únicas com a arte e dedicação de Vitória.
             </p>
-            <a
-              href="https://instagram.com/aminhaflorinha"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-rose-medium transition-colors"
-            >
-              <Instagram className="w-5 h-5" />
-              @aminhaflorinha
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/aminhaflorinha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-rose-medium transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://facebook.com/aminhaflorinha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-rose-medium transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
