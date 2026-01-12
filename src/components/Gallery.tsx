@@ -14,8 +14,9 @@ import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
 import event4 from "@/assets/event-4.jpg";
 import event5 from "@/assets/event-5.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
+import arranjo1 from "@/assets/arranjo-1.jpg";
+import arranjo2 from "@/assets/arranjo-2.jpg";
+import arranjo3 from "@/assets/arranjo-3.jpg";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
@@ -36,9 +37,10 @@ const galleryImages = [
   { src: event3, alt: "Moldura decorativa com girassóis e eucalipto", category: "Eventos" },
   { src: event4, alt: "Centro de mesa com flores secas e velas", category: "Eventos" },
   { src: event5, alt: "Decoração de mesa com flores em tons terrosos", category: "Eventos" },
-  // Arranjos
-  { src: gallery1, alt: "Bouquet de rosas cor-de-rosa", category: "Arranjos" },
-  { src: gallery6, alt: "Arranjo em jarra de vidro", category: "Arranjos" },
+  // Arranjos - 3 fotos
+  { src: arranjo1, alt: "Bouquet com rosas e dálias em tons rosa e bordô", category: "Arranjos" },
+  { src: arranjo2, alt: "Bouquet rústico com crisântemos e eucalipto", category: "Arranjos" },
+  { src: arranjo3, alt: "Bouquet campestre com margaridas e craspédias", category: "Arranjos" },
 ];
 
 const categories = ["Todos", "Casamentos", "Arranjos", "Eventos"];
