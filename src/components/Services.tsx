@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import serviceWedding from "@/assets/service-wedding.jpg";
+import serviceWedding from "@/assets/service-wedding-new.jpg";
 import serviceBridal from "@/assets/service-bridal.jpg";
 import serviceCustom from "@/assets/service-custom.jpg";
 import serviceCorporate from "@/assets/service-corporate.jpg";
