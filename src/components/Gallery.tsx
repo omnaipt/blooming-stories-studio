@@ -9,8 +9,12 @@ import wedding7 from "@/assets/wedding-7.jpg";
 import wedding8 from "@/assets/wedding-8.jpg";
 import wedding9 from "@/assets/wedding-9.jpg";
 import wedding10 from "@/assets/wedding-10.jpg";
+import event1 from "@/assets/event-1.jpg";
+import event2 from "@/assets/event-2.jpg";
+import event3 from "@/assets/event-3.jpg";
+import event4 from "@/assets/event-4.jpg";
+import event5 from "@/assets/event-5.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -26,9 +30,14 @@ const galleryImages = [
   { src: wedding8, alt: "Centro de mesa azul e branco com velas", category: "Casamentos" },
   { src: wedding9, alt: "Corredor de flores com hortênsias coloridas", category: "Casamentos" },
   { src: wedding10, alt: "Arranjo alto com hortênsias em estrutura dourada", category: "Casamentos" },
-  // Outros
+  // Eventos empresariais - 5 fotos
+  { src: event1, alt: "Arco de eucalipto e gipsófila com velas", category: "Eventos" },
+  { src: event2, alt: "Mesa de buffet com arranjos florais elegantes", category: "Eventos" },
+  { src: event3, alt: "Moldura decorativa com girassóis e eucalipto", category: "Eventos" },
+  { src: event4, alt: "Centro de mesa com flores secas e velas", category: "Eventos" },
+  { src: event5, alt: "Decoração de mesa com flores em tons terrosos", category: "Eventos" },
+  // Arranjos
   { src: gallery1, alt: "Bouquet de rosas cor-de-rosa", category: "Arranjos" },
-  { src: gallery3, alt: "Centro de mesa com velas e rosas", category: "Eventos" },
   { src: gallery6, alt: "Arranjo em jarra de vidro", category: "Arranjos" },
 ];
 
