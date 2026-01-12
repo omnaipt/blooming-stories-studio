@@ -9,6 +9,15 @@ import wedding7 from "@/assets/wedding-7.jpg";
 import wedding8 from "@/assets/wedding-8.jpg";
 import wedding9 from "@/assets/wedding-9.jpg";
 import wedding10 from "@/assets/wedding-10.jpg";
+import wedding11 from "@/assets/wedding-11.jpg";
+import wedding12 from "@/assets/wedding-12.jpg";
+import wedding13 from "@/assets/wedding-13.jpg";
+import wedding14 from "@/assets/wedding-14.jpg";
+import wedding15 from "@/assets/wedding-15.jpg";
+import wedding16 from "@/assets/wedding-16.jpg";
+import wedding17 from "@/assets/wedding-17.jpg";
+import wedding18 from "@/assets/wedding-18.jpg";
+import wedding19 from "@/assets/wedding-19.jpg";
 import event1 from "@/assets/event-1.jpg";
 import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
@@ -20,7 +29,7 @@ import arranjo3 from "@/assets/arranjo-3.jpg";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  // Casamentos - 10 fotos do portfolio
+  // Casamentos - 19 fotos do portfolio
   { src: wedding1, alt: "Mesa de noivos com decoração elegante", category: "Casamentos" },
   { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", category: "Casamentos" },
   { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", category: "Casamentos" },
@@ -31,6 +40,15 @@ const galleryImages = [
   { src: wedding8, alt: "Centro de mesa azul e branco com velas", category: "Casamentos" },
   { src: wedding9, alt: "Corredor de flores com hortênsias coloridas", category: "Casamentos" },
   { src: wedding10, alt: "Arranjo alto com hortênsias em estrutura dourada", category: "Casamentos" },
+  { src: wedding11, alt: "Corredor de cerimónia com lanternas e flores", category: "Casamentos" },
+  { src: wedding12, alt: "Detalhe de banco decorado com eucalipto", category: "Casamentos" },
+  { src: wedding13, alt: "Mesa de cerimónia com arranjo rústico", category: "Casamentos" },
+  { src: wedding14, alt: "Mesa de noivos com jarras e copos de leite", category: "Casamentos" },
+  { src: wedding15, alt: "Mesa rústica com flores coloridas em jarras", category: "Casamentos" },
+  { src: wedding16, alt: "Cerimónia ao ar livre com arco florido", category: "Casamentos" },
+  { src: wedding17, alt: "Placa de boas-vindas com eucalipto e gipsófila", category: "Casamentos" },
+  { src: wedding18, alt: "Vespa vintage decorada com hortênsias", category: "Casamentos" },
+  { src: wedding19, alt: "Mesa redonda com centro de hortênsias", category: "Casamentos" },
   // Eventos empresariais - 5 fotos
   { src: event1, alt: "Arco de eucalipto e gipsófila com velas", category: "Eventos" },
   { src: event2, alt: "Mesa de buffet com arranjos florais elegantes", category: "Eventos" },
