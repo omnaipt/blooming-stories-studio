@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logoTransparent from "@/assets/logo-transparent.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#servicos", label: "Serviços" },
-    { href: "#galeria", label: "Galeria" },
-    { href: "#sobre", label: "Sobre Nós" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "#home", label: t("nav.home") },
+    { href: "#servicos", label: t("nav.services") },
+    { href: "#galeria", label: t("nav.gallery") },
+    { href: "#sobre", label: t("nav.about") },
+    { href: "#contacto", label: t("nav.contact") },
   ];
 
   return (
@@ -56,23 +59,27 @@ const Header = () => {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
+          <LanguageSwitcher />
           <a href="tel:+351914975475" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
             <Phone className="w-4 h-4" />
             914 975 475
           </a>
           <Button variant="coral" size="sm" asChild>
-            <a href="#orcamento">Pedir Orçamento</a>
+            <a href="#orcamento">{t("nav.quote")}</a>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2 text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -98,7 +105,7 @@ const Header = () => {
               914 975 475
             </a>
             <Button variant="coral" size="lg" className="w-full" asChild>
-              <a href="#orcamento">Pedir Orçamento</a>
+              <a href="#orcamento">{t("nav.quote")}</a>
             </Button>
           </div>
         </nav>
