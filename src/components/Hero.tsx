@@ -43,7 +43,7 @@ const Hero = () => {
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-xl">
             {language === "pt" 
-              ? "Decoração floral para casamentos, eventos e momentos especiais. Criações únicas com a arte e dedicação de Vitória."
+              ? "Decoração floral para casamentos, eventos e momentos especiais. Criações únicas com a arte e dedicação da Vitória."
               : "Floral decoration for weddings, events and special moments. Unique creations with the art and dedication of Vitória."
             }
           </p>
