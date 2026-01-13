@@ -3,7 +3,7 @@ import wedding1 from "@/assets/wedding-1.jpg";
 import wedding2 from "@/assets/wedding-2.jpg";
 import wedding3 from "@/assets/wedding-3.jpg";
 import wedding4 from "@/assets/wedding-4.jpg";
-import wedding5 from "@/assets/wedding-5.jpg";
+
 import wedding6 from "@/assets/wedding-6.jpg";
 import wedding7 from "@/assets/wedding-7.jpg";
 import wedding8 from "@/assets/wedding-8.jpg";
@@ -40,7 +40,7 @@ const galleryImages = [
   { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", category: "Casamentos" },
   { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", category: "Casamentos" },
   { src: wedding4, alt: "Decoração outonal com romãs e flores secas", category: "Casamentos" },
-  { src: wedding5, alt: "Centro de mesa criativo com gomas", category: "Casamentos" },
+  
   { src: wedding6, alt: "Arco floral exterior com tecido terracota", category: "Casamentos" },
   { src: wedding7, alt: "Placa de boas-vindas decorada com flores", category: "Casamentos" },
   { src: wedding8, alt: "Centro de mesa azul e branco com velas", category: "Casamentos" },
