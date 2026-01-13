@@ -46,9 +46,10 @@ const Contact = () => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center"><Clock className="w-5 h-5" /></div>
-                <div>
+              <div>
                   <p className="text-sm text-primary-foreground/60 mb-1">{language === "pt" ? "Horário" : "Hours"}</p>
-                  <p className="font-medium">{language === "pt" ? "Seg - Sáb: 9h - 19h" : "Mon - Sat: 9am - 7pm"}</p>
+                  <p className="font-medium">{language === "pt" ? "Seg - Sex: 9h - 19h" : "Mon - Fri: 9am - 7pm"}</p>
+                  <p className="font-medium">{language === "pt" ? "Sáb: 9h - 13h" : "Sat: 9am - 1pm"}</p>
                 </div>
               </div>
             </div>
