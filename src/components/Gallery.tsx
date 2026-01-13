@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import wedding1 from "@/assets/wedding-1.jpg";
 import wedding2 from "@/assets/wedding-2.jpg";
 import wedding3 from "@/assets/wedding-3.jpg";
 import wedding4 from "@/assets/wedding-4.jpg";
-
 import wedding6 from "@/assets/wedding-6.jpg";
 import wedding7 from "@/assets/wedding-7.jpg";
 import wedding8 from "@/assets/wedding-8.jpg";
@@ -35,47 +35,52 @@ import { Button } from "@/components/ui/button";
 const INITIAL_VISIBLE_COUNT = 6;
 
 const galleryImages = [
-  // Casamentos - 22 fotos do portfolio
-  { src: wedding1, alt: "Mesa de noivos com decoração elegante", category: "Casamentos" },
-  { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", category: "Casamentos" },
-  { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", category: "Casamentos" },
-  { src: wedding4, alt: "Decoração outonal com romãs e flores secas", category: "Casamentos" },
-  
-  { src: wedding6, alt: "Arco floral exterior com tecido terracota", category: "Casamentos" },
-  { src: wedding7, alt: "Placa de boas-vindas decorada com flores", category: "Casamentos" },
-  { src: wedding8, alt: "Centro de mesa azul e branco com velas", category: "Casamentos" },
-  { src: wedding9, alt: "Corredor de flores com hortênsias coloridas", category: "Casamentos" },
-  { src: wedding10, alt: "Arranjo alto com hortênsias em estrutura dourada", category: "Casamentos" },
-  { src: wedding11, alt: "Corredor de cerimónia com lanternas e flores", category: "Casamentos" },
-  { src: wedding12, alt: "Detalhe de banco decorado com eucalipto", category: "Casamentos" },
-  { src: wedding13, alt: "Mesa de cerimónia com arranjo rústico", category: "Casamentos" },
-  { src: wedding14, alt: "Mesa de noivos com jarras e copos de leite", category: "Casamentos" },
-  { src: wedding15, alt: "Mesa rústica com flores coloridas em jarras", category: "Casamentos" },
-  { src: wedding16, alt: "Cerimónia ao ar livre com arco florido", category: "Casamentos" },
-  { src: wedding17, alt: "Placa de boas-vindas com eucalipto e gipsófila", category: "Casamentos" },
-  { src: wedding18, alt: "Vespa vintage decorada com hortênsias", category: "Casamentos" },
-  { src: wedding19, alt: "Mesa redonda com centro de hortênsias", category: "Casamentos" },
-  { src: wedding20, alt: "Mesa de entrada com arranjo de rosas e velas", category: "Casamentos" },
-  { src: wedding21, alt: "Noiva com bouquet de flores brancas", category: "Casamentos" },
-  { src: wedding22, alt: "Noiva com bouquet de rosas cor-de-rosa", category: "Casamentos" },
+  // Casamentos - 21 fotos do portfolio
+  { src: wedding1, alt: "Mesa de noivos com decoração elegante", altEn: "Bride and groom table with elegant decoration", category: "Casamentos" },
+  { src: wedding2, alt: "Centros de mesa com flores brancas e eucalipto", altEn: "Table centerpieces with white flowers and eucalyptus", category: "Casamentos" },
+  { src: wedding3, alt: "Arranjos de gipsófila e eucalipto", altEn: "Baby's breath and eucalyptus arrangements", category: "Casamentos" },
+  { src: wedding4, alt: "Decoração outonal com romãs e flores secas", altEn: "Autumn decoration with pomegranates and dried flowers", category: "Casamentos" },
+  { src: wedding6, alt: "Arco floral exterior com tecido terracota", altEn: "Outdoor floral arch with terracotta fabric", category: "Casamentos" },
+  { src: wedding7, alt: "Placa de boas-vindas decorada com flores", altEn: "Welcome sign decorated with flowers", category: "Casamentos" },
+  { src: wedding8, alt: "Centro de mesa azul e branco com velas", altEn: "Blue and white table centerpiece with candles", category: "Casamentos" },
+  { src: wedding9, alt: "Corredor de flores com hortênsias coloridas", altEn: "Flower aisle with colorful hydrangeas", category: "Casamentos" },
+  { src: wedding10, alt: "Arranjo alto com hortênsias em estrutura dourada", altEn: "Tall arrangement with hydrangeas on golden structure", category: "Casamentos" },
+  { src: wedding11, alt: "Corredor de cerimónia com lanternas e flores", altEn: "Ceremony aisle with lanterns and flowers", category: "Casamentos" },
+  { src: wedding12, alt: "Detalhe de banco decorado com eucalipto", altEn: "Detail of bench decorated with eucalyptus", category: "Casamentos" },
+  { src: wedding13, alt: "Mesa de cerimónia com arranjo rústico", altEn: "Ceremony table with rustic arrangement", category: "Casamentos" },
+  { src: wedding14, alt: "Mesa de noivos com jarras e copos de leite", altEn: "Bride and groom table with vases and calla lilies", category: "Casamentos" },
+  { src: wedding15, alt: "Mesa rústica com flores coloridas em jarras", altEn: "Rustic table with colorful flowers in vases", category: "Casamentos" },
+  { src: wedding16, alt: "Cerimónia ao ar livre com arco florido", altEn: "Outdoor ceremony with floral arch", category: "Casamentos" },
+  { src: wedding17, alt: "Placa de boas-vindas com eucalipto e gipsófila", altEn: "Welcome sign with eucalyptus and baby's breath", category: "Casamentos" },
+  { src: wedding18, alt: "Vespa vintage decorada com hortênsias", altEn: "Vintage Vespa decorated with hydrangeas", category: "Casamentos" },
+  { src: wedding19, alt: "Mesa redonda com centro de hortênsias", altEn: "Round table with hydrangea centerpiece", category: "Casamentos" },
+  { src: wedding20, alt: "Mesa de entrada com arranjo de rosas e velas", altEn: "Entry table with rose arrangement and candles", category: "Casamentos" },
+  { src: wedding21, alt: "Noiva com bouquet de flores brancas", altEn: "Bride with white flower bouquet", category: "Casamentos" },
+  { src: wedding22, alt: "Noiva com bouquet de rosas cor-de-rosa", altEn: "Bride with pink rose bouquet", category: "Casamentos" },
   // Eventos empresariais - 5 fotos
-  { src: event1, alt: "Arco de eucalipto e gipsófila com velas", category: "Eventos" },
-  { src: event2, alt: "Mesa de buffet com arranjos florais elegantes", category: "Eventos" },
-  { src: event3, alt: "Moldura decorativa com girassóis e eucalipto", category: "Eventos" },
-  { src: event4, alt: "Centro de mesa com flores secas e velas", category: "Eventos" },
-  { src: event5, alt: "Decoração de mesa com flores em tons terrosos", category: "Eventos" },
+  { src: event1, alt: "Arco de eucalipto e gipsófila com velas", altEn: "Eucalyptus and baby's breath arch with candles", category: "Eventos" },
+  { src: event2, alt: "Mesa de buffet com arranjos florais elegantes", altEn: "Buffet table with elegant floral arrangements", category: "Eventos" },
+  { src: event3, alt: "Moldura decorativa com girassóis e eucalipto", altEn: "Decorative frame with sunflowers and eucalyptus", category: "Eventos" },
+  { src: event4, alt: "Centro de mesa com flores secas e velas", altEn: "Table centerpiece with dried flowers and candles", category: "Eventos" },
+  { src: event5, alt: "Decoração de mesa com flores em tons terrosos", altEn: "Table decoration with flowers in earthy tones", category: "Eventos" },
   // Arranjos - 3 fotos
-  { src: arranjo1, alt: "Bouquet com rosas e dálias em tons rosa e bordô", category: "Arranjos" },
-  { src: arranjo2, alt: "Bouquet rústico com crisântemos e eucalipto", category: "Arranjos" },
-  { src: arranjo3, alt: "Bouquet campestre com margaridas e craspédias", category: "Arranjos" },
+  { src: arranjo1, alt: "Bouquet com rosas e dálias em tons rosa e bordô", altEn: "Bouquet with roses and dahlias in pink and burgundy tones", category: "Arranjos" },
+  { src: arranjo2, alt: "Bouquet rústico com crisântemos e eucalipto", altEn: "Rustic bouquet with chrysanthemums and eucalyptus", category: "Arranjos" },
+  { src: arranjo3, alt: "Bouquet campestre com margaridas e craspédias", altEn: "Country bouquet with daisies and craspedias", category: "Arranjos" },
 ];
 
-const categories = ["Todos", "Casamentos", "Arranjos", "Eventos"];
-
 const Gallery = () => {
+  const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
+
+  const categories = [
+    { key: "Todos", label: t("gallery.all") },
+    { key: "Casamentos", label: t("gallery.weddings") },
+    { key: "Arranjos", label: t("gallery.arrangements") },
+    { key: "Eventos", label: t("gallery.events") },
+  ];
 
   const filteredImages =
     activeCategory === "Todos"
@@ -104,34 +109,43 @@ const Gallery = () => {
       prev !== null ? (prev + 1) % filteredImages.length : null
     );
 
+  const getAlt = (image: typeof galleryImages[0]) => {
+    return language === "en" ? image.altEn : image.alt;
+  };
+
+  const getCategoryLabel = (category: string) => {
+    const cat = categories.find(c => c.key === category);
+    return cat ? cat.label : category;
+  };
+
   return (
     <section id="galeria" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-widest mb-4">
-            Galeria
+            {t("gallery.label")}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-            Os Nossos Trabalhos
+            {t("gallery.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-            Cada criação é única, feita com amor e atenção aos mais pequenos detalhes.
+            {t("gallery.description")}
           </p>
 
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {categories.map((category) => (
               <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
+                key={category.key}
+                onClick={() => handleCategoryChange(category.key)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
+                  activeCategory === category.key
                     ? "bg-primary text-primary-foreground shadow-soft"
                     : "bg-muted text-muted-foreground hover:bg-secondary hover:text-secondary-foreground"
                 }`}
               >
-                {category}
+                {category.label}
               </button>
             ))}
           </div>
@@ -147,13 +161,13 @@ const Gallery = () => {
             >
               <img
                 src={image.src}
-                alt={image.alt}
+                alt={getAlt(image)}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-4">
-                  <p className="text-primary-foreground font-medium text-lg">{image.alt}</p>
-                  <span className="text-primary-foreground/80 text-sm">{image.category}</span>
+                  <p className="text-primary-foreground font-medium text-lg">{getAlt(image)}</p>
+                  <span className="text-primary-foreground/80 text-sm">{getCategoryLabel(image.category)}</span>
                 </div>
               </div>
             </div>
@@ -171,11 +185,11 @@ const Gallery = () => {
             >
               {showAll ? (
                 <>
-                  Ver Menos <ChevronUp className="w-4 h-4" />
+                  {t("gallery.showLess")} <ChevronUp className="w-4 h-4" />
                 </>
               ) : (
                 <>
-                  Ver Mais ({filteredImages.length - INITIAL_VISIBLE_COUNT} fotos) <ChevronDown className="w-4 h-4" />
+                  {t("gallery.showMore")} ({filteredImages.length - INITIAL_VISIBLE_COUNT} {t("gallery.photos")}) <ChevronDown className="w-4 h-4" />
                 </>
               )}
             </Button>
@@ -191,7 +205,7 @@ const Gallery = () => {
             className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-medium transition-colors"
           >
             <span>📸</span>
-            Veja mais no nosso Instagram @aminhaflorinha
+            {t("gallery.instagram")}
           </a>
         </div>
       </div>
@@ -205,7 +219,7 @@ const Gallery = () => {
           <button
             onClick={closeLightbox}
             className="absolute top-4 right-4 p-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-            aria-label="Fechar"
+            aria-label={language === "pt" ? "Fechar" : "Close"}
           >
             <X className="w-8 h-8" />
           </button>
@@ -216,14 +230,14 @@ const Gallery = () => {
               goToPrev();
             }}
             className="absolute left-4 p-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-            aria-label="Anterior"
+            aria-label={language === "pt" ? "Anterior" : "Previous"}
           >
             <ChevronLeft className="w-10 h-10" />
           </button>
 
           <img
             src={filteredImages[lightboxIndex].src}
-            alt={filteredImages[lightboxIndex].alt}
+            alt={getAlt(filteredImages[lightboxIndex])}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
@@ -234,14 +248,14 @@ const Gallery = () => {
               goToNext();
             }}
             className="absolute right-4 p-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-            aria-label="Próximo"
+            aria-label={language === "pt" ? "Próximo" : "Next"}
           >
             <ChevronRight className="w-10 h-10" />
           </button>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-            <p className="text-primary-foreground font-medium">{filteredImages[lightboxIndex].alt}</p>
-            <p className="text-primary-foreground/60 text-sm">{filteredImages[lightboxIndex].category}</p>
+            <p className="text-primary-foreground font-medium">{getAlt(filteredImages[lightboxIndex])}</p>
+            <p className="text-primary-foreground/60 text-sm">{getCategoryLabel(filteredImages[lightboxIndex].category)}</p>
           </div>
         </div>
       )}

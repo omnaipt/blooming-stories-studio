@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroBouquet from "@/assets/hero-bouquet.jpg";
 
 const Hero = () => {
+  const { t, language } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -22,37 +25,53 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
-            Cada Flor Conta
-            <br />
-            <span className="italic text-rose-medium">uma História</span>
+            {language === "pt" ? (
+              <>
+                Cada Flor Conta
+                <br />
+                <span className="italic text-rose-medium">uma História</span>
+              </>
+            ) : (
+              <>
+                Every Flower Tells
+                <br />
+                <span className="italic text-rose-medium">a Story</span>
+              </>
+            )}
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-xl">
-            Decoração floral para casamentos, eventos e momentos especiais. 
-            Criações únicas com a arte e dedicação de Vitória.
+            {language === "pt" 
+              ? "Decoração floral para casamentos, eventos e momentos especiais. Criações únicas com a arte e dedicação de Vitória."
+              : "Floral decoration for weddings, events and special moments. Unique creations with the art and dedication of Vitória."
+            }
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="hero" size="xl" asChild>
               <a href="#servicos">
-                Explorar Serviços
+                {language === "pt" ? "Explorar Serviços" : "Explore Services"}
               </a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="https://wa.me/351914975475?text=Olá%20Vitória,%20gostaria%20de%20saber%20mais%20sobre%20os%20vossos%20serviços%20de%20decoração%20floral." target="_blank" rel="noopener noreferrer">
-                Enviar Mensagem
+                {language === "pt" ? "Enviar Mensagem" : "Send Message"}
               </a>
             </Button>
           </div>
 
           {/* Delivery Areas & Since */}
           <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 text-primary-foreground/80">
-            <span className="text-sm italic font-serif">Desde 1988</span>
+            <span className="text-sm italic font-serif">
+              {language === "pt" ? "Desde 1988" : "Since 1988"}
+            </span>
             <span className="hidden sm:block text-primary-foreground/40">•</span>
             <div className="flex items-center gap-2">
-              <span className="text-sm">Entregas em:</span>
+              <span className="text-sm">
+                {language === "pt" ? "Entregas em:" : "Deliveries to:"}
+              </span>
               <div className="flex gap-2">
                 {["Mafra", "Loures", "Lisboa"].map((area) => (
                   <span
@@ -71,7 +90,9 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <a href="#servicos" className="flex flex-col items-center gap-2 text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-          <span className="text-xs uppercase tracking-widest">Explorar</span>
+          <span className="text-xs uppercase tracking-widest">
+            {language === "pt" ? "Explorar" : "Explore"}
+          </span>
           <ChevronDown className="w-5 h-5" />
         </a>
       </div>

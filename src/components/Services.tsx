@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import serviceWedding from "@/assets/service-wedding-new.jpg";
 import serviceBridal from "@/assets/service-bridal.jpg";
 import serviceCustom from "@/assets/service-custom.jpg";
@@ -6,66 +7,82 @@ import serviceCorporate from "@/assets/service-corporate-new.jpg";
 import serviceBaptism from "@/assets/service-baptism.jpg";
 import serviceFuneral from "@/assets/service-funeral.jpg";
 
-const services = [
-  {
-    id: "casamentos",
-    title: "Decoração de Casamentos",
-    description: "Cenários florais românticos que transformam o vosso dia especial em memórias eternas.",
-    image: serviceWedding,
-    icon: "💒",
-  },
-  {
-    id: "bouquets",
-    title: "Bouquets de Noiva",
-    description: "Criações personalizadas que complementam o vestido e a personalidade da noiva.",
-    image: serviceBridal,
-    icon: "💐",
-  },
-  {
-    id: "presentes",
-    title: "Presentes Especiais",
-    description: "Composições únicas adaptadas ao vosso gosto, ocasião e ambiente.",
-    image: serviceCustom,
-    icon: "🌸",
-  },
-  {
-    id: "empresas",
-    title: "Eventos Empresariais",
-    description: "Ambientação sofisticada para conferências, inaugurações e celebrações corporativas.",
-    image: serviceCorporate,
-    icon: "🏢",
-  },
-  {
-    id: "batizados",
-    title: "Batizados e Festas",
-    description: "Decoração delicada para batizados, comunhões e celebrações familiares.",
-    image: serviceBaptism,
-    icon: "🕊️",
-  },
-  {
-    id: "funerarios",
-    title: "Serviços Fúnebres",
-    description: "Tributos florais respeitosos e elegantes para homenagear os que partiram.",
-    image: serviceFuneral,
-    icon: "🤍",
-  },
-];
-
 const Services = () => {
+  const { language, t } = useLanguage();
+
+  const services = [
+    {
+      id: "casamentos",
+      title: language === "pt" ? "Decoração de Casamentos" : "Wedding Decoration",
+      description: language === "pt" 
+        ? "Cenários florais românticos que transformam o vosso dia especial em memórias eternas."
+        : "Romantic floral settings that transform your special day into eternal memories.",
+      image: serviceWedding,
+      icon: "💒",
+    },
+    {
+      id: "bouquets",
+      title: language === "pt" ? "Bouquets de Noiva" : "Bridal Bouquets",
+      description: language === "pt"
+        ? "Criações personalizadas que complementam o vestido e a personalidade da noiva."
+        : "Personalized creations that complement the dress and the bride's personality.",
+      image: serviceBridal,
+      icon: "💐",
+    },
+    {
+      id: "presentes",
+      title: language === "pt" ? "Presentes Especiais" : "Special Gifts",
+      description: language === "pt"
+        ? "Composições únicas adaptadas ao vosso gosto, ocasião e ambiente."
+        : "Unique compositions adapted to your taste, occasion and environment.",
+      image: serviceCustom,
+      icon: "🌸",
+    },
+    {
+      id: "empresas",
+      title: language === "pt" ? "Eventos Empresariais" : "Corporate Events",
+      description: language === "pt"
+        ? "Ambientação sofisticada para conferências, inaugurações e celebrações corporativas."
+        : "Sophisticated setting for conferences, openings and corporate celebrations.",
+      image: serviceCorporate,
+      icon: "🏢",
+    },
+    {
+      id: "batizados",
+      title: language === "pt" ? "Batizados e Festas" : "Baptisms & Parties",
+      description: language === "pt"
+        ? "Decoração delicada para batizados, comunhões e celebrações familiares."
+        : "Delicate decoration for baptisms, communions and family celebrations.",
+      image: serviceBaptism,
+      icon: "🕊️",
+    },
+    {
+      id: "funerarios",
+      title: language === "pt" ? "Serviços Fúnebres" : "Funeral Services",
+      description: language === "pt"
+        ? "Tributos florais respeitosos e elegantes para homenagear os que partiram."
+        : "Respectful and elegant floral tributes to honor those who have passed.",
+      image: serviceFuneral,
+      icon: "🤍",
+    },
+  ];
+
   return (
     <section id="servicos" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-up">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-widest mb-4">
-            Os Nossos Serviços
+            {t("services.label")}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-            A Arte de Vitória
+            {language === "pt" ? "A Arte de Vitória" : "The Art of Vitória"}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Desde 1988, criamos arranjos florais únicos que transformam cada momento em memórias especiais. 
-            Cada composição é uma obra de arte feita com amor e dedicação.
+            {language === "pt"
+              ? "Desde 1988, criamos arranjos florais únicos que transformam cada momento em memórias especiais. Cada composição é uma obra de arte feita com amor e dedicação."
+              : "Since 1988, we create unique floral arrangements that transform every moment into special memories. Each composition is a work of art made with love and dedication."
+            }
           </p>
         </div>
 
@@ -100,7 +117,7 @@ const Services = () => {
                 </p>
                 <Button variant="ghost" className="p-0 h-auto text-accent hover:text-accent/80 font-medium" asChild>
                   <a href="#orcamento">
-                    Pedir Orçamento →
+                    {t("nav.quote")} →
                   </a>
                 </Button>
               </div>
