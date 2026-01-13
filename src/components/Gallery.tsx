@@ -29,7 +29,10 @@ import event5 from "@/assets/event-5.jpg";
 import arranjo1 from "@/assets/arranjo-1.jpg";
 import arranjo2 from "@/assets/arranjo-2.jpg";
 import arranjo3 from "@/assets/arranjo-3.jpg";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const INITIAL_VISIBLE_COUNT = 6;
 
 const galleryImages = [
   // Casamentos - 22 fotos do portfolio
@@ -72,11 +75,23 @@ const categories = ["Todos", "Casamentos", "Arranjos", "Eventos"];
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const filteredImages =
     activeCategory === "Todos"
       ? galleryImages
       : galleryImages.filter((img) => img.category === activeCategory);
+
+  const visibleImages = showAll 
+    ? filteredImages 
+    : filteredImages.slice(0, INITIAL_VISIBLE_COUNT);
+
+  const hasMoreImages = filteredImages.length > INITIAL_VISIBLE_COUNT;
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setShowAll(false);
+  };
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -109,7 +124,7 @@ const Gallery = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => handleCategoryChange(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
                     ? "bg-primary text-primary-foreground shadow-soft"
@@ -124,7 +139,7 @@ const Gallery = () => {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {filteredImages.map((image, index) => (
+          {visibleImages.map((image, index) => (
             <div
               key={index}
               onClick={() => openLightbox(index)}
@@ -144,6 +159,28 @@ const Gallery = () => {
             </div>
           ))}
         </div>
+
+        {/* Show More/Less Button */}
+        {hasMoreImages && (
+          <div className="text-center mt-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll(!showAll)}
+              className="gap-2"
+            >
+              {showAll ? (
+                <>
+                  Ver Menos <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  Ver Mais ({filteredImages.length - INITIAL_VISIBLE_COUNT} fotos) <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
+          </div>
+        )}
 
         {/* Instagram CTA */}
         <div className="text-center mt-12">
