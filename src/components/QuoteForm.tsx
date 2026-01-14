@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const QuoteForm = () => {
   const { language } = useLanguage();
@@ -30,10 +31,34 @@ const QuoteForm = () => {
       return;
     }
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast({ title: language === "pt" ? "Mensagem enviada! 🌸" : "Message sent! 🌸", description: language === "pt" ? "Entraremos em contacto consigo em breve." : "We will contact you shortly." });
-    setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false });
-    setIsSubmitting(false);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          date: formData.date,
+          message: formData.message,
+          language: language,
+        },
+      });
+
+      if (error) throw error;
+
+      toast({ title: language === "pt" ? "Mensagem enviada! 🌸" : "Message sent! 🌸", description: language === "pt" ? "Entraremos em contacto consigo em breve." : "We will contact you shortly." });
+      setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({ 
+        title: language === "pt" ? "Erro" : "Error", 
+        description: language === "pt" ? "Não foi possível enviar a mensagem. Por favor, tente novamente." : "Could not send the message. Please try again.", 
+        variant: "destructive" 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
