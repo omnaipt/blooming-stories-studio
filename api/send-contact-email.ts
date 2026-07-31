@@ -76,7 +76,7 @@ function buildHtml(p: Required<Pick<ContactPayload, "name" | "email" | "phone" |
   </div></body></html>`;
 }
 
-export default async function handler(request: Request): Promise<Response> {
+async function handler(request: Request): Promise<Response> {
   if (request.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: CORS });
   }
@@ -176,3 +176,8 @@ export default async function handler(request: Request): Promise<Response> {
     });
   }
 }
+
+// Assinatura Web da Vercel. Um `export default function (request)` seria
+// interpretado como o handler Node (req, res) e o Response devolvido seria
+// ignorado, deixando o pedido pendurado até timeout.
+export default { fetch: handler };
