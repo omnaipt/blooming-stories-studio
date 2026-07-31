@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+
 
 const QuoteForm = () => {
   const { language } = useLanguage();
@@ -12,7 +12,7 @@ const QuoteForm = () => {
     : ["Wedding", "Bridal Bouquet", "Special Gift", "Corporate Event", "Baptism", "Funeral Service", "Other"];
 
   const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false,
+    name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false, company: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -33,8 +33,10 @@ const QuoteForm = () => {
     setIsSubmitting(true);
     
     try {
-      const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: {
+      const response = await fetch("/api/send-contact-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -42,13 +44,16 @@ const QuoteForm = () => {
           date: formData.date,
           message: formData.message,
           language: language,
-        },
+          company: formData.company,
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) {
+        throw new Error(`Falha no envio: ${response.status}`);
+      }
 
       toast({ title: language === "pt" ? "Mensagem enviada! 🌸" : "Message sent! 🌸", description: language === "pt" ? "Entraremos em contacto consigo em breve." : "We will contact you shortly." });
-      setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false });
+      setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "", privacy: false, company: "" });
     } catch (error) {
       console.error("Error sending email:", error);
       toast({ 
