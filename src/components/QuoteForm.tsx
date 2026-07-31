@@ -83,6 +83,19 @@ const QuoteForm = () => {
           </div>
           <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 lg:p-12 shadow-card">
             <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {/* Honeypot anti-spam: invisível para humanos, preenchido por bots */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">{language === "pt" ? "Nome *" : "Name *"}</label>
                 <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all" placeholder={language === "pt" ? "O seu nome" : "Your name"} />
